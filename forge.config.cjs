@@ -26,8 +26,23 @@ module.exports = {
   ],
   plugins: [
     {
-      name: '@electron-forge/plugin-auto-unpack-natives',
-      config: {},
+      name: '@electron-forge/plugin-vite',
+      config: {
+        // The key fix is here - renderer must be an array
+        renderer: [
+          {
+            name: 'main_window',
+            config: 'vite.config.js',
+          }
+        ],
+        // Main process configuration
+        build: [
+          {
+            entry: 'electron/main.js',
+            config: 'vite.config.js',
+          }
+        ],
+      },
     },
     // Fuses are used to enable/disable various Electron functionality
     // at package time, before code signing the application
@@ -42,3 +57,4 @@ module.exports = {
     }),
   ],
 };
+

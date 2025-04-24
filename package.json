@@ -1,4 +1,5 @@
 {
+  "main": "electron/main.js",
   "name": "zentra-app",
   "private": true,
   "version": "0.0.0",
@@ -8,7 +9,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "electron-forge start",
+    "start": "vite build && electron-forge start",
     "package": "electron-forge package",
     "publish": "electron-forge publish",
     "make": "electron-forge make"
