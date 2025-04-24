@@ -17,6 +17,9 @@ const createWindow = () => {
       // Use correct path to preload.js
       preload: path.join(__dirname, 'preload.js'),
     },
+    backgroundColor: '#1A1A1A',
+    // titleBarStyle: 'hidden',
+    // frame: false,
   });
 
  
@@ -24,7 +27,7 @@ const createWindow = () => {
 
   
   // For debugging - open DevTools
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 };
 
 // Create window when Electron is ready

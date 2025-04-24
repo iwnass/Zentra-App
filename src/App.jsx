@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.jsx
+import React, { useState } from 'react';
+import Layout from './Components/Layout/Layout';
+import Analytics from './Components/Analytics/Analytics';
+import Main from './Components/Main/Main';
 
 function App() {
-  const [count, setCount] = useState(0)
+  // Set Dashboard as the default page
+  const [currentPage, setCurrentPage] = useState('Dashboard');
+
+  // Content to render based on selected page
+  const renderContent = () => {
+    switch (currentPage) {
+      case 'Analytics':
+        return <Analytics />;
+      case 'Dashboard':
+        // This is your default welcome content that should show in Main
+        return (
+          <Main>
+            
+          </Main>
+        );
+      case 'Security':
+        return <h1 className="text-2xl font-bold text-snow mb-6">Security</h1>;
+      case 'Audit Log':
+        return <h1 className="text-2xl font-bold text-snow mb-6">Audit Log</h1>;
+      case 'Users':
+        return <h1 className="text-2xl font-bold text-snow mb-6">Users</h1>;
+      case 'Settings':
+        return <h1 className="text-2xl font-bold text-snow mb-6">Settings</h1>;
+      default:
+        return null;
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="w-full h-full">
+      <Layout currentPage={currentPage} onPageChange={setCurrentPage}>
+        {renderContent()}
+      </Layout>
+    </div>
+  );
 }
 
-export default App
+export default App;
