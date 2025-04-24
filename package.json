@@ -1,6 +1,6 @@
 {
   "main": "electron/main.js",
-  "name": "zentra-app",
+  "name": "Zentra",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -37,7 +37,7 @@
     "@eslint/js": "^9.22.0",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
-    "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-react": "^4.4.1",
     "autoprefixer": "^10.4.21",
     "electron": "^35.2.1",
     "eslint": "^9.22.0",
@@ -47,5 +47,18 @@
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.1",
     "vite": "^6.3.1"
+  },
+  "build": {
+    "appId": "com.zentra.app",
+    "productName": "Zentra",
+    "mac": {
+      "icon": "/src/assets/icons/MacOs/icon.icns"
+    },
+    "win": {
+      "icon": "src/assets/icons/Windows/icon.ico"
+    },
+    "linux": {
+      "icon": "src/assets/icons/Linux"
+    }
   }
 }
