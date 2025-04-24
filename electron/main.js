@@ -14,18 +14,17 @@ const createWindow = () => {
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
+      // Use correct path to preload.js
       preload: path.join(__dirname, 'preload.js'),
     },
-    backgroundColor: '#0f0f0f', // Black background matching your color palette
   });
 
-  // Load the index.html file
-  mainWindow.loadFile(path.join(__dirname, '../dist/index.html'));
+ 
+  mainWindow.loadURL('http://localhost:5173');
+
   
-  // Open DevTools in development
-//   if (process.env.NODE_ENV === 'development') {
-//     mainWindow.webContents.openDevTools();
-//   }
+  // For debugging - open DevTools
+  mainWindow.webContents.openDevTools();
 };
 
 // Create window when Electron is ready
