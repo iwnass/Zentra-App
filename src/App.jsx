@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import Layout from './Components/Layout/Layout';
 import Analytics from './Components/Analytics/Analytics';
 import Main from './Components/Main/Main';
+import Security from './Pages/Security';
+import AuditLog from './Pages/AuditLog';  
 
 function App() {
   // Set Dashboard as the default page
@@ -21,9 +23,9 @@ function App() {
           </Main>
         );
       case 'Security':
-        return <h1 className="text-2xl font-bold text-snow mb-6">Security</h1>;
+        return <Security />;
       case 'Audit Log':
-        return <h1 className="text-2xl font-bold text-snow mb-6">Audit Log</h1>;
+        return <AuditLog></AuditLog>;
       case 'Users':
         return <h1 className="text-2xl font-bold text-snow mb-6">Users</h1>;
       case 'Settings':
