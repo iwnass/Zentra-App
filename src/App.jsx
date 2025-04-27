@@ -5,6 +5,8 @@ import Analytics from './Components/Analytics/Analytics';
 import Main from './Components/Main/Main';
 import Security from './Pages/Security';
 import AuditLog from './Pages/AuditLog';  
+import Users from './Pages/Users';
+import Settings from './Pages/Settings';
 
 function App() {
   // Set Dashboard as the default page
@@ -16,20 +18,17 @@ function App() {
       case 'Analytics':
         return <Analytics />;
       case 'Dashboard':
-        // This is your default welcome content that should show in Main
         return (
-          <Main>
-            
-          </Main>
+          <Main></Main>
         );
       case 'Security':
         return <Security />;
       case 'Audit Log':
         return <AuditLog></AuditLog>;
       case 'Users':
-        return <h1 className="text-2xl font-bold text-snow mb-6">Users</h1>;
+        return <Users></Users>;
       case 'Settings':
-        return <h1 className="text-2xl font-bold text-snow mb-6">Settings</h1>;
+        return <Settings></Settings>;
       default:
         return null;
     }

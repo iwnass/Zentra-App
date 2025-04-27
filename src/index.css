@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Add CSS to your HTML file */
+.title-bar {
+  background-color: #ff5733; /* Set the title bar background color */
+}
 
 
 html, body, #root {

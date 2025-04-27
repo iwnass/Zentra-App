@@ -18,12 +18,14 @@ const createWindow = () => {
       preload: path.join(__dirname, 'preload.js'),
     },
     backgroundColor: '#1A1A1A',
-    // titleBarStyle: 'hidden',
+    //titleBarStyle: 'hidden',
     // frame: false,
+    autoHideMenuBar: true
   });
 
  
   mainWindow.loadURL('http://localhost:5173');
+  mainWindow.setMenuBarVisibility(false)
 
   
   // For debugging - open DevTools

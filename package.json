@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "axios": "^1.8.4",
+    "custom-electron-titlebar": "^4.2.8",
+    "electron-custom-titlebar": "^4.0.2",
     "electron-squirrel-startup": "^1.0.1",
     "electron-store": "^10.0.1",
     "lucide-react": "^0.503.0",
