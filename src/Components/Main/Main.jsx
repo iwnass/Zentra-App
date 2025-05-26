@@ -33,9 +33,10 @@ import React, { useState, useEffect } from 'react';
 // Discord OAuth configuration
 const DISCORD_CONFIG = {
   clientId: '1376196426123710646', // Replace with your Discord app client ID
-  redirectUri: 'http://localhost:3000/auth/callback', // Your OAuth redirect URI
+  redirectUri: 'http://localhost:3000/api/auth/callback', // Your OAuth redirect URI
   scope: 'identify guilds',
-  apiEndpoint: 'https://discord.com/api/v10'
+  apiEndpoint: 'https://discord.com/api/v10',
+  backendUrl: 'http://localhost:3000'
 };
 
 // Mock user state - replace with your actual auth context
@@ -66,7 +67,7 @@ const useAuth = () => {
       setLoading(true);
       
       // Exchange code for access token (this should be done on your backend)
-      const tokenResponse = await fetch('/api/auth/discord/callback', {
+      const tokenResponse = await fetch(`${DISCORD_CONFIG.backendUrl}/api/auth/discord/callback`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ code })
@@ -107,7 +108,7 @@ const useAuth = () => {
   const filterZentraGuilds = async (guilds) => {
     try {
       // Call your API to check which guilds have Zentra bot
-      const response = await fetch('/api/guilds/with-zentra', {
+      const response = await fetch(`${DISCORD_CONFIG.backendUrl}/api/guilds/with-zentra`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ guild_ids: guilds.map(g => g.id) })
